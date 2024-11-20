@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace LsManagerDesktop.ViewModels;
+namespace LsManagerDesktop.UI.__Shared;
 
 public class ViewModelBase : ReactiveObject
 {

@@ -1,8 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using LsManagerDesktop.ViewModels;
-using LsManagerDesktop.Views;
+using LsManagerDesktop.UI._MainWindow;
 
 namespace LsManagerDesktop;
 

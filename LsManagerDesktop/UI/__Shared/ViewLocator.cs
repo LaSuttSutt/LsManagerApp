@@ -1,9 +1,8 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using LsManagerDesktop.ViewModels;
 
-namespace LsManagerDesktop;
+namespace LsManagerDesktop.UI.__Shared;
 
 public class ViewLocator : IDataTemplate
 {

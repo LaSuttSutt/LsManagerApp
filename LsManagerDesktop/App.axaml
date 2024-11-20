@@ -1,15 +1,30 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="LsManagerDesktop.App"
-             xmlns:local="using:LsManagerDesktop"
-             RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+             xmlns:ui="using:LsManagerDesktop.UI.__Shared"
+             RequestedThemeVariant="Light">
 
     <Application.DataTemplates>
-        <local:ViewLocator/>
+        <ui:ViewLocator/>
     </Application.DataTemplates>
   
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Controls/HeaderControl.axaml" />
     </Application.Styles>
+             
+    <Application.Resources>
+        <Color x:Key="BackgroundCol">#555555</Color>
+        <SolidColorBrush x:Key="BackgroundBrush" Color="#555555" />
+        <Color x:Key="GroupBoxBackgroundCol">#BFBEBE</Color>
+        <SolidColorBrush x:Key="GroupBoxBackgroundBrush" Color="#BFBEBE" />
+        <Color x:Key="PrimaryCol">#8BB312</Color>
+        <SolidColorBrush x:Key="PrimaryBrush" Color="#8BB312" />
+        <Color x:Key="GroupBoxHeaderCol">#757E5A</Color>
+        <SolidColorBrush x:Key="GroupBoxHeaderBrush" Color="#757E5A" />
+        <Color x:Key="BorderCol">Black</Color>
+        <SolidColorBrush x:Key="BorderBrush" Color="Black" />
+        
+        <FontFamily x:Key="Poppins">avares://LsManagerDesktop/Assets/Fonts/Poppins#Poppins</FontFamily>
+    </Application.Resources>
 </Application>

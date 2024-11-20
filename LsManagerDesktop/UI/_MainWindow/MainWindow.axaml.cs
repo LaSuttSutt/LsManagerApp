@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace LsManagerDesktop.Views;
+namespace LsManagerDesktop.UI._MainWindow;
 
 public partial class MainWindow : Window
 {

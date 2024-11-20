@@ -1,0 +1,34 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:LsManagerDesktop.UI.__Shared.Controls">
+    <Design.PreviewWith>
+        <controls:HeaderControl>
+            <Button>Test</Button>
+        </controls:HeaderControl>
+    </Design.PreviewWith>
+
+    <Style Selector="controls|HeaderControl">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid RowDefinitions="Auto, *">
+                    <Border Grid.Row="0"
+                            Height="31"
+                            Background="{DynamicResource PrimaryBrush}"
+                            IsHitTestVisible="False"
+                            BorderThickness="0 0 0 1" 
+                            BorderBrush="{DynamicResource BorderBrush}">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="65" IsVisible="{OnPlatform false, macOS=true}" />
+                            <Image Source="avares://LsManagerDesktop/Assets/Images/Logo25.png"
+                                   HorizontalAlignment="Left" Width="25" Height="25"
+                                   Margin="5 1 0 0"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Row="1" Background="{DynamicResource BackgroundBrush}">
+                        <ContentPresenter Content="{TemplateBinding Content}" />
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>
