@@ -25,7 +25,7 @@
                         </StackPanel>
                     </Border>
                     <Border Grid.Row="1" Background="{DynamicResource BackgroundBrush}">
-                        <ContentPresenter Content="{TemplateBinding Content}" />
+                        <ContentPresenter Content="{TemplateBinding Content}" Margin="15"/>
                     </Border>
                 </Grid>
             </ControlTemplate>
