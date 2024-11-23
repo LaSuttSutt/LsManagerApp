@@ -21,8 +21,16 @@
             <StackPanel Grid.Column="0" Orientation="Vertical">
                 <controls:GroupBox Title="Start Game">
                     <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto, Auto">
-                        <controls:CheckBox Grid.Column="0" Grid.Row="0" Text="Empty Mod Folder" />
-                        <controls:CheckBox Grid.Column="0" Grid.Row="1" Text="Cheats enabled" />
+                        <controls:CheckBox Grid.Column="0" Grid.Row="0"
+                                           Text="Empty Mod Folder"
+                                           IsChecked="{Binding StartGameEmptyModFolder}" />
+                        <controls:CheckBox Grid.Column="0" Grid.Row="1"
+                                           Text="Cheats enabled"
+                                           IsChecked="{Binding StartGameEnableCheats}" />
+
+                        <controls:StartButton Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="2 0"
+                                              Command="{Binding StartGameCommand}">
+                        </controls:StartButton>
                     </Grid>
                 </controls:GroupBox>
             </StackPanel>

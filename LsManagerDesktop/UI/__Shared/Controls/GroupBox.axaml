@@ -25,7 +25,7 @@
                             </Label>
                         </Border>
                         <Border Grid.Row="1" Background="{DynamicResource GroupBoxBackgroundBrush}">
-                            <ContentPresenter Content="{TemplateBinding Content}" Margin="15" />
+                            <ContentPresenter Content="{TemplateBinding Content}" Margin="10" />
                         </Border>
                     </Grid>
                 </Border>

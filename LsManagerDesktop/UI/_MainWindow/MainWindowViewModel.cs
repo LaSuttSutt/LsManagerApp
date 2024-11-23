@@ -1,13 +1,31 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Input;
 using LsManagerDesktop.UI.__Shared;
-using Path = System.IO.Path;
+using ReactiveUI;
 
 namespace LsManagerDesktop.UI._MainWindow;
 
 public class MainWindowViewModel : ViewModelBase
 {
+    public bool StartGameEmptyModFolder { get; set; }
+    public bool StartGameEnableCheats { get; set; }
+    
+    public ICommand StartGameCommand { get; set; }
+    
     public MainWindowViewModel()
+    {
+        StartGameCommand = ReactiveCommand.Create(StartGame);
+    }
+
+    private void StartGame()
+    {
+        Console.WriteLine("Starting game...");
+        Console.WriteLine(StartGameEmptyModFolder);
+        Console.WriteLine(StartGameEnableCheats);
+    }
+    
+    private void FolderStuff()
     {
         var steamDirectory = @"F:\Steam";
         var fsDirectory = Path.Combine(steamDirectory, @"steamapps\common\Farming Simulator 25");
