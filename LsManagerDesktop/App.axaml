@@ -11,6 +11,8 @@
     <Application.Styles>
         <FluentTheme />
         <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Controls/HeaderControl.axaml" />
+        <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Controls/GroupBox.axaml" />
+        <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Controls/CheckBox.axaml" />
     </Application.Styles>
              
     <Application.Resources>
@@ -22,9 +24,13 @@
         <SolidColorBrush x:Key="PrimaryBrush" Color="#8BB312" />
         <Color x:Key="GroupBoxHeaderCol">#757E5A</Color>
         <SolidColorBrush x:Key="GroupBoxHeaderBrush" Color="#757E5A" />
+        <Color x:Key="GroupBoxTitleCol">White</Color>
+        <SolidColorBrush x:Key="GroupBoxTitleBrush" Color="White" />
         <Color x:Key="BorderCol">Black</Color>
         <SolidColorBrush x:Key="BorderBrush" Color="Black" />
         
         <FontFamily x:Key="Poppins">avares://LsManagerDesktop/Assets/Fonts/Poppins#Poppins</FontFamily>
+        
+        <StreamGeometry x:Key="CheckMark">M5.5 10.586 1.707 6.793A1 1 0 0 0 .293 8.207l4.5 4.5a1 1 0 0 0 1.414 0l11-11A1 1 0 0 0 15.793.293L5.5 10.586Z</StreamGeometry>
     </Application.Resources>
 </Application>

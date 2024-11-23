@@ -17,6 +17,15 @@
         ExtendClientAreaToDecorationsHint="True">
 
     <controls:HeaderControl>
-        <Button>Test</Button>
+        <Grid ColumnDefinitions="*, *">
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <controls:GroupBox Title="Start Game">
+                    <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto, Auto">
+                        <controls:CheckBox Grid.Column="0" Grid.Row="0" Text="Empty Mod Folder" />
+                        <controls:CheckBox Grid.Column="0" Grid.Row="1" Text="Cheats enabled" />
+                    </Grid>
+                </controls:GroupBox>
+            </StackPanel>
+        </Grid>
     </controls:HeaderControl>
 </Window>

@@ -2,14 +2,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="using:LsManagerDesktop.UI.__Shared.Controls">
     <Design.PreviewWith>
-        <controls:GroupBox />
+        <controls:GroupBox>
+            <Button>Test</Button>
+        </controls:GroupBox>
     </Design.PreviewWith>
 
     <Style Selector="controls|GroupBox">
-        <!-- Set Defaults -->
         <Setter Property="Template">
             <ControlTemplate>
-                <TextBlock Text="Templated Control" />
+                <Border BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1">
+                    <Grid RowDefinitions="Auto, *">
+                        <Border Grid.Row="0" Background="{DynamicResource GroupBoxHeaderBrush}"
+                                Height="38" BorderThickness="0 0 0 1"
+                                BorderBrush="{DynamicResource BorderCol}">
+                            <Label FontFamily="{DynamicResource Poppins}"
+                                   FontSize="24" Content="{TemplateBinding Title}"
+                                   FontWeight="Medium" FontStyle="Italic" Margin="10 0"
+                                   Foreground="{DynamicResource GroupBoxTitleBrush}">
+                                <Label.Effect>
+                                    <DropShadowEffect OffsetX="2" OffsetY="2" BlurRadius="4" Opacity=".25" />
+                                </Label.Effect>
+                            </Label>
+                        </Border>
+                        <Border Grid.Row="1" Background="{DynamicResource GroupBoxBackgroundBrush}">
+                            <ContentPresenter Content="{TemplateBinding Content}" Margin="15" />
+                        </Border>
+                    </Grid>
+                </Border>
             </ControlTemplate>
         </Setter>
     </Style>

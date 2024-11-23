@@ -1,0 +1,41 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:LsManagerDesktop.UI.__Shared.Controls">
+    <Design.PreviewWith>
+        <StackPanel>
+            <controls:CheckBox IsChecked="False" />
+            <controls:CheckBox IsChecked="True" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <Style Selector="controls|CheckBox">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel Orientation="Horizontal">
+                    <Border Classes.checked="{TemplateBinding IsChecked}"
+                            Background="Transparent"
+                            Width="17" Height="17" BorderBrush="{DynamicResource BackgroundBrush}"
+                            BorderThickness="1" CornerRadius="3" Margin="3">
+                        <PathIcon Data="{StaticResource CheckMark}" 
+                                  IsVisible="{TemplateBinding IsChecked}"
+                                  VerticalAlignment="Center" Width="11" Foreground="White"
+                                  IsHitTestVisible="False" />
+                    </Border>
+                    <Label Content="{TemplateBinding Text}" 
+                           FontFamily="{DynamicResource Poppins}"
+                           FontSize="16" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="controls|CheckBox Border.checked">
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+    </Style>
+    
+    <Style Selector="controls|CheckBox:pointerover /template/ Border">
+        <Setter Property="BorderBrush" Value="{DynamicResource GroupBoxHeaderBrush}" />
+        <Setter Property="BorderThickness" Value="2" />
+    </Style>
+</Styles>
