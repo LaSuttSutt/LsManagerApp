@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Input;
 using LsManagerDesktop.Logic;
 using LsManagerDesktop.UI.__Shared;
@@ -24,7 +23,8 @@ public class MainWindowViewModel : ViewModelBase
     
     private void StartGame()
     {
-        LogicManager.StartGameLogic.StartGame(StartGameEmptyModFolder, StartGameEnableCheats);
+        LogicManager.StartGameLogic.StartGame(LogicManager.FileLogic.LsExecutionFilePath, StartGameEmptyModFolder,
+            StartGameEnableCheats);
     }
     
     private void StartGameLogicOnGameStarted(object? sender, EventArgs e)

@@ -4,18 +4,17 @@ using System.Diagnostics;
 
 namespace LsManagerDesktop.Logic.MainWindow;
 
-public class StartGameLogic(string executableString) : IStartGameLogic
+public class StartGameLogic : IStartGameLogic
 {
     public event EventHandler? GameStarted;
-    private string ExecutableString { get; } = executableString;
 
-    public void StartGame(bool emptyModFolder, bool enableCheats)
+    public void StartGame(string executable, bool emptyModFolder, bool enableCheats)
     {
         var arguments = new List<string>();
         if (enableCheats)
             arguments.Add("-cheats");
          
-        Process.Start(ExecutableString, arguments);
+        Process.Start(executable, arguments);
         GameStarted?.Invoke(this, EventArgs.Empty);
     }
 }
