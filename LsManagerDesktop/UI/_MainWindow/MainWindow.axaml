@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         x:Class="LsManagerDesktop.UI._MainWindow.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/FS25.ico"
         Title="LS Manager"
         Width="727"
         Height="762"
