@@ -11,32 +11,24 @@ public class MainWindowViewModel : ViewModelBase
 {
     public bool StartGameEmptyModFolder { get; set; }
     public bool StartGameEnableCheats { get; set; }
+    public bool CanStartGame => LogicManager.FileLogic.CanExecute;
     
     public ICommand StartGameCommand { get; set; }
     
     public MainWindowViewModel()
     {
         LogicManager.FileLogic.BuildAndCheckFolders(@"F:\Steam");
+        LogicManager.StartGameLogic.GameStarted += StartGameLogicOnGameStarted;
         StartGameCommand = ReactiveCommand.Create(StartGame);
     }
-
+    
     private void StartGame()
     {
-        Console.WriteLine("Starting game...");
-        Console.WriteLine(StartGameEmptyModFolder);
-        Console.WriteLine(StartGameEnableCheats);
+        LogicManager.StartGameLogic.StartGame(StartGameEmptyModFolder, StartGameEnableCheats);
     }
     
-    private void FolderStuff()
+    private void StartGameLogicOnGameStarted(object? sender, EventArgs e)
     {
-        var steamDirectory = @"F:\Steam";
-        var fsDirectory = Path.Combine(steamDirectory, @"steamapps\common\Farming Simulator 25");
-
-        var fileInfo = File.Exists(Path.Combine(fsDirectory, "FarmingSimulator2025.exe"));
-        
-        var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        var fsDataDirectory = Path.Combine(documentsDirectory, "My Games", "FarmingSimulator2025");
-        
-        var settingsFile = File.Exists(Path.Combine(fsDataDirectory, "gameSettings.xml"));
+        Environment.Exit(0);
     }
 }

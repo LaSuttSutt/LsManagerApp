@@ -5,6 +5,6 @@ namespace LsManagerDesktop.Logic;
 
 public static class LogicManager
 {
-    public static IMainWindowLogic MainWindow { get; set; } = new MainWindowLogic();
-    public static IFileLogic FileLogic { get; set; } = new FileLogic();
+    public static IFileLogic FileLogic { get; } = new FileLogic();
+    public static IStartGameLogic StartGameLogic { get; set; } = new StartGameLogic(FileLogic.LsExecutionFilePath);
 }

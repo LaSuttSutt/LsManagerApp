@@ -44,4 +44,8 @@
     <Style Selector="controls|StartButton:pressed /template/ Border.hover">
         <Setter Property="Background" Value="Transparent" />
     </Style>
+    
+    <Style Selector="controls|StartButton:disabled /template/ Border">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
 </Styles>

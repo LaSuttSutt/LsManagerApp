@@ -18,8 +18,12 @@
 
     <controls:HeaderControl>
         <Grid ColumnDefinitions="*, *">
-            <StackPanel Grid.Column="0" Orientation="Vertical">
-                <controls:GroupBox Title="Start Game">
+            
+            <!-- Left Part -->
+            <Grid Grid.Column="0" RowDefinitions="Auto, *">
+
+                <!-- Start Game Box -->
+                <controls:GroupBox Grid.Row="0" Title="Start Game">
                     <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto, Auto">
                         <controls:CheckBox Grid.Column="0" Grid.Row="0"
                                            Text="Empty Mod Folder"
@@ -29,11 +33,17 @@
                                            IsChecked="{Binding StartGameEnableCheats}" />
 
                         <controls:StartButton Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="2 0"
-                                              Command="{Binding StartGameCommand}">
+                                              Command="{Binding StartGameCommand}"
+                                              IsEnabled="{Binding CanStartGame}">
                         </controls:StartButton>
                     </Grid>
                 </controls:GroupBox>
-            </StackPanel>
+                
+                <!-- Start Savegame part -->
+                <controls:GroupBox Grid.Row="1" Title="Start Savegame" Margin="0 10 0 0">
+                    <controls:NavigationButton Click="NavigationButton_OnClick" ButtonIcon="{DynamicResource CheckMark}"></controls:NavigationButton>
+                </controls:GroupBox>
+            </Grid>
         </Grid>
     </controls:HeaderControl>
 </Window>
