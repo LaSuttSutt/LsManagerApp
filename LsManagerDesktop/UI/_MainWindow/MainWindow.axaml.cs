@@ -10,9 +10,4 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
-
-    private void NavigationButton_OnClick(object? sender, RoutedEventArgs e)
-    {
-        Console.WriteLine("Clicked...");
-    }
 }

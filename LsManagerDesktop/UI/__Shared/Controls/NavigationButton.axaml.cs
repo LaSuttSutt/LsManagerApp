@@ -3,6 +3,7 @@ using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
+using Avalonia.Data;
 using Avalonia.Interactivity;
 using Avalonia.Media;
 using ReactiveUI;
@@ -14,21 +15,29 @@ public class NavigationButton : TemplatedControl
     public static readonly StyledProperty<Geometry> ButtonIconProperty =
         AvaloniaProperty.Register<NavigationButton, Geometry>(
             nameof(ButtonIcon));
+    
+    public static readonly StyledProperty<ICommand?> CommandProperty =
+        AvaloniaProperty.Register<Button, ICommand?>(nameof(Command), enableDataValidation: true);
+    
+    public static readonly StyledProperty<string> TextProperty = AvaloniaProperty.Register<NavigationButton, string>(
+        nameof(Text), defaultValue: "Default Text");
 
-    private static readonly RoutedEvent<RoutedEventArgs> ClickEvent =
-        RoutedEvent.Register<NavigationButton, RoutedEventArgs>(nameof(Click), RoutingStrategies.Bubble);
-
+    public string Text
+    {
+        get => GetValue(TextProperty);
+        set => SetValue(TextProperty, value);
+    }
 
     public Geometry ButtonIcon
     {
         get => GetValue(ButtonIconProperty);
         set => SetValue(ButtonIconProperty, value);
     }
-
-    public event EventHandler<RoutedEventArgs>? Click
+    
+    public ICommand? Command
     {
-        add => AddHandler(ClickEvent, value);
-        remove => RemoveHandler(ClickEvent, value);
+        get => GetValue(CommandProperty);
+        set => SetValue(CommandProperty, value);
     }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -36,6 +45,8 @@ public class NavigationButton : TemplatedControl
         base.OnApplyTemplate(e);
 
         if (e.NameScope.Find("NavBtn") is Button btn)
-            btn.Click += (_, _) => RaiseEvent(new RoutedEventArgs(ClickEvent, this));
+        {
+            btn.Click += (_, _) => Command?.Execute(null);
+        }
     }
 }

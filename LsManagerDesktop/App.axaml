@@ -14,6 +14,7 @@
         <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Controls/GroupBox.axaml" />
         <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Controls/CheckBox.axaml" />
         <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Controls/StartButton.axaml" />
+        <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Controls/IconButton.axaml" />
         <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Controls/NavigationButton.axaml" />
     </Application.Styles>
              

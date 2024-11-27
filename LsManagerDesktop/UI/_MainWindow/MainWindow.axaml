@@ -20,7 +20,7 @@
         <Grid ColumnDefinitions="*, *">
 
             <!-- Left Part -->
-            <Grid Grid.Column="0" RowDefinitions="Auto, *">
+            <Grid Grid.Column="0" RowDefinitions="Auto, *" Margin="0 0 15 0">
 
                 <!-- Start Game Box -->
                 <controls:GroupBox Grid.Row="0" Title="Start Game">
@@ -45,11 +45,14 @@
             </Grid>
 
             <!-- Right Part -->
-            <Grid Grid.Column="1" RowDefinitions="Auto, Auto, *, Auto">
-                <controls:NavigationButton Grid.Row="0" 
-                                           Click="NavigationButton_OnClick" 
-                                           ButtonIcon="{DynamicResource CheckMark}">
-                </controls:NavigationButton>
+            <Grid Grid.Column="1" RowDefinitions="Auto, Auto, *, Auto" Margin="15 0 0 0">
+                <controls:NavigationButton Grid.Row="0" Text="Savegames"
+                                           Command="{Binding BtnSavegamesCLicked}"
+                                           ButtonIcon="{DynamicResource Save}" />
+                <controls:NavigationButton Grid.Row="1" Text="Mod DB" Margin="0 12 0 0"
+                                           Command="{Binding BtnModDbClicked}"
+                                           ButtonIcon="{DynamicResource Archive}" />
+                <Image Grid.Row="3" Source="avares://LsManagerDesktop/Assets/Images/BigLogo.png" />
             </Grid>
         </Grid>
     </controls:HeaderControl>
