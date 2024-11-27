@@ -18,7 +18,7 @@
 
     <controls:HeaderControl>
         <Grid ColumnDefinitions="*, *">
-            
+
             <!-- Left Part -->
             <Grid Grid.Column="0" RowDefinitions="Auto, *">
 
@@ -38,11 +38,18 @@
                         </controls:StartButton>
                     </Grid>
                 </controls:GroupBox>
-                
+
                 <!-- Start Savegame part -->
                 <controls:GroupBox Grid.Row="1" Title="Start Savegame" Margin="0 10 0 0">
-                    <controls:NavigationButton Click="NavigationButton_OnClick" ButtonIcon="{DynamicResource CheckMark}"></controls:NavigationButton>
                 </controls:GroupBox>
+            </Grid>
+
+            <!-- Right Part -->
+            <Grid Grid.Column="1" RowDefinitions="Auto, Auto, *, Auto">
+                <controls:NavigationButton Grid.Row="0" 
+                                           Click="NavigationButton_OnClick" 
+                                           ButtonIcon="{DynamicResource CheckMark}">
+                </controls:NavigationButton>
             </Grid>
         </Grid>
     </controls:HeaderControl>
