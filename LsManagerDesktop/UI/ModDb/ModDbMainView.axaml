@@ -1,0 +1,49 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:LsManagerDesktop.UI.ModDb"
+             xmlns:controls="using:LsManagerDesktop.UI.__Shared.Controls"
+             mc:Ignorable="d" d:DesignHeight="654" d:DesignWidth="870"
+             x:Class="LsManagerDesktop.UI.ModDb.ModDbMainView"
+             x:DataType="vm:ModDbMainViewModel"
+             Background="{DynamicResource BackgroundBrush}">
+    <Grid ColumnDefinitions="Auto, *">
+        <controls:GroupBox Grid.Column="0" Width="350" Title="Mods">
+            <Grid RowDefinitions="Auto, *, Auto" Margin="-10">
+
+                <!-- Categories -->
+                <Border Grid.Row="0"
+                        BorderThickness="0 0 0 1"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        Background="{DynamicResource ColoredBackgroundBrush}">
+                    <StackPanel>
+                        <ComboBox Classes="category" PlaceholderText="Category" />
+                        <ComboBox Classes="category" Margin="10 0 10 10"
+                                  PlaceholderText="Sub category" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Add Mod -->
+                <Border Grid.Row="2"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="0 1 0 0"
+                        Background="{DynamicResource ColoredBackgroundBrush}">
+                    <controls:NavigationButton Classes="navBtnAdd" Margin="10 4" Text="Add new mod" 
+                                               ButtonIcon="{DynamicResource Plus}"
+                                               Command="{Binding AddNewModCommand}"/>
+                </Border>
+            </Grid>
+        </controls:GroupBox>
+    </Grid>
+
+    <UserControl.Styles>
+        <Style Selector="ComboBox.category">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="FontFamily" Value="{DynamicResource Poppins}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Background" Value="{DynamicResource GroupBoxBackgroundLightBrush}" />
+        </Style>
+    </UserControl.Styles>
+</UserControl>

@@ -41,6 +41,12 @@
 
                 <!-- Start Savegame part -->
                 <controls:GroupBox Grid.Row="1" Title="Start Savegame" Margin="0 10 0 0">
+                    <ComboBox PlaceholderText="Main category"
+                              FontFamily="{DynamicResource Poppins}"
+                              FontSize="14"
+                              FontWeight="Normal">
+                        <ComboBoxItem>Traktoren</ComboBoxItem>
+                    </ComboBox>
                 </controls:GroupBox>
             </Grid>
 

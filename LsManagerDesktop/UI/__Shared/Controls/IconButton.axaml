@@ -2,7 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="using:LsManagerDesktop.UI.__Shared.Controls">
     <Design.PreviewWith>
-        <controls:IconButton />
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <controls:IconButton />
+            <controls:IconButton Classes="small" />
+        </StackPanel>
     </Design.PreviewWith>
 
     <Style Selector="controls|IconButton">
@@ -24,6 +27,32 @@
                     </Border>
                     <Border Classes="hover" CornerRadius="5" Background="Transparent"
                             Width="64" Height="64"
+                            IsHitTestVisible="False" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="controls|IconButton.small">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <Border Width="32" Height="32" CornerRadius="3"
+                            Background="{DynamicResource GroupBoxHeaderBrush}"
+                            BorderBrush="{DynamicResource BorderBrush}"
+                            BorderThickness="1">
+                        <PathIcon Data="{TemplateBinding ButtonIcon}" Margin="0 0 0 0"
+                                  Width="18" Height="18"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center" Foreground="{DynamicResource GroupBoxTitleBrush}"
+                                  IsHitTestVisible="False" />
+
+                        <Border.Effect>
+                            <DropShadowEffect Opacity=".3" BlurRadius="4" OffsetX="1" OffsetY="1" />
+                        </Border.Effect>
+                    </Border>
+                    <Border Classes="hover" CornerRadius="5" Background="Transparent"
+                            Width="32" Height="32"
                             IsHitTestVisible="False" />
                 </Grid>
             </ControlTemplate>

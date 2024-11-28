@@ -2,8 +2,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="using:LsManagerDesktop.UI.__Shared.Controls">
     <Design.PreviewWith>
-        <Border Background="Black">
-            <controls:NavigationButton Margin="10" />
+        <Border Background="Gray">
+            <StackPanel Margin="10" Spacing="10">
+                <controls:NavigationButton />
+                <controls:NavigationButton Classes="navBtnAdd" />
+            </StackPanel>
         </Border>
     </Design.PreviewWith>
 
@@ -12,13 +15,24 @@
             <ControlTemplate>
                 <Grid ColumnDefinitions="Auto *">
                     <controls:IconButton Grid.Column="0" Name="NavBtn" ButtonIcon="{TemplateBinding ButtonIcon}" />
-                    <Label Grid.Column="1" Classes="NavBtn" Content="{TemplateBinding Text}" />
+                    <Label Grid.Column="1" Classes="navBtn" Content="{TemplateBinding Text}" />
                 </Grid>
             </ControlTemplate>
         </Setter>
     </Style>
     
-    <Style Selector="Label.NavBtn">
+    <Style Selector="controls|NavigationButton.navBtnAdd">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid ColumnDefinitions="Auto *">
+                    <controls:IconButton Grid.Column="0" Classes="small" Name="NavBtn" ButtonIcon="{TemplateBinding ButtonIcon}" />
+                    <Label Grid.Column="1" Classes="navBtn" Content="{TemplateBinding Text}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="controls|NavigationButton > Grid > Label.navBtn">
         <Setter Property="Foreground" Value="{DynamicResource GroupBoxTitleBrush}" />
         <Setter Property="FontFamily" Value="{DynamicResource Poppins}" />
         <Setter Property="FontSize" Value="32" />
@@ -26,5 +40,15 @@
         <Setter Property="FontStyle" Value="Italic" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Margin" Value="9 0" />
+    </Style>
+    
+    <Style Selector="controls|NavigationButton.navBtnAdd > Grid > Label.navBtn">
+        <Setter Property="Foreground" Value="{DynamicResource GroupBoxTitleBrush}" />
+        <Setter Property="FontFamily" Value="{DynamicResource Poppins}" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="FontStyle" Value="Italic" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="5 0" />
     </Style>
 </Styles>
