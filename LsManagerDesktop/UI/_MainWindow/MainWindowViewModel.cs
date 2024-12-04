@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using LsManagerDesktop.Data;
 using LsManagerDesktop.Logic;
 using LsManagerDesktop.UI.__Shared;
 using LsManagerDesktop.UI.__Shared.Dialogs;
@@ -15,6 +16,7 @@ public class MainWindowViewModel : ViewModelBase
     
     public MainWindowViewModel()
     {
+        DataAccess.Initialize();
         LogicManager.FileLogic.BuildAndCheckFolders(@"F:\Steam");
         LogicManager.StartGameLogic.GameStarted += OnGameStarted;
         StartGameCommand = ReactiveCommand.Create(OnStartGame);
