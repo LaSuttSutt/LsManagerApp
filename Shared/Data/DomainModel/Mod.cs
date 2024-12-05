@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LsManagerDesktop.Data.DomainModel;
+namespace Shared.Data.DomainModel;
 
 [Table("Mods")]
 public class Mod

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 
-namespace LsManagerDesktop.Data;
+namespace Shared.Data;
 
 public static class DataAccess
 {

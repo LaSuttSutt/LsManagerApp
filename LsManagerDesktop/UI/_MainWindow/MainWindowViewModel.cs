@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using LsManagerDesktop.Data;
 using LsManagerDesktop.Logic;
 using LsManagerDesktop.UI.__Shared;
 using LsManagerDesktop.UI.__Shared.Dialogs;
 using LsManagerDesktop.UI.ModDb;
 using ReactiveUI;
+using Shared.Data;
 
 namespace LsManagerDesktop.UI._MainWindow;
 

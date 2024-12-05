@@ -1,7 +1,7 @@
-﻿using LsManagerDesktop.Data.DomainModel;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Shared.Data.DomainModel;
 
-namespace LsManagerDesktop.Data;
+namespace Shared.Data;
 
 public class LsDbContext : DbContext
 {
