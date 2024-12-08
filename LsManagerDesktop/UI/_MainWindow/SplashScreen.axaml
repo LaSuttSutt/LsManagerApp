@@ -1,0 +1,56 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:LsManagerDesktop.UI._MainWindow"
+        xmlns:controls="using:LsManagerDesktop.UI.__Shared.Controls"
+        mc:Ignorable="d"
+        x:Class="LsManagerDesktop.UI._MainWindow.SplashScreen"
+        Title="SplashScreen"
+        Topmost="True"
+        WindowStartupLocation="CenterScreen"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaChromeHints="NoChrome"
+        ExtendClientAreaToDecorationsHint="True"
+        SizeToContent="WidthAndHeight"
+        Background="Transparent"
+        Icon="/Assets/FS25.ico"
+        x:DataType="vm:SplashScreenViewModel">
+    <Border Background="{DynamicResource BackgroundBrush}">
+        <controls:HeaderControl>
+            <StackPanel>
+                <Image Source="avares://LsManagerDesktop/Assets/Images/BigLogo.png" Stretch="None" />
+                <StackPanel Margin="0 10 0 0"
+                            IsVisible="{Binding ShowModDbFolder}">
+                    <Label Classes="lblText">ModDb Folder</Label>
+                    <StackPanel Orientation="Horizontal" Spacing="3" Margin="0 -4 0 0">
+                        <TextBox Classes="inTxt" Width="350"></TextBox>
+                        <Button Classes="lblBtn" 
+                                Command="{Binding BtnModDbFolderCommand}">...</Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </controls:HeaderControl>
+    </Border>
+    
+    <Window.Styles>
+        <Style Selector="Label.lblText">
+            <Setter Property="FontFamily" Value="{DynamicResource Poppins}" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        
+        <Style Selector="TextBox.inTxt">
+            <Setter Property="FontFamily" Value="{DynamicResource Poppins}" />
+            <Setter Property="IsHitTestVisible" Value="false" />
+            <Setter Property="Watermark" Value="- not set -" />
+            <Setter Property="Background" Value="{DynamicResource GroupBoxBackgroundBrush}" />
+        </Style>
+        
+        <Style Selector="Button.lblBtn">
+            <Setter Property="Background" Value="{DynamicResource GroupBoxBackgroundBrush}" />
+            <Setter Property="Height" Value="32" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+    </Window.Styles>
+</Window>
