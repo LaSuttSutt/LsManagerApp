@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reactive;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Avalonia.Controls;
+using Avalonia.Platform.Storage;
 using LsManagerDesktop.UI.__Shared;
 using ReactiveUI;
 using Shared.Data;
@@ -18,10 +21,7 @@ public class SplashScreenViewModel : ViewModelBase
 
     public SplashScreenViewModel()
     {
-        BtnModDbFolderCommand = ReactiveCommand.Create(() =>
-        {
-            IsFinished = true;
-        });
+        BtnModDbFolderCommand = ReactiveCommand.Create<Window, Task>(SelectModDbFolder);
     }
     
     public async Task Load()
@@ -60,5 +60,23 @@ public class SplashScreenViewModel : ViewModelBase
                 this.RaisePropertyChanged(nameof(ShowModDbFolder));
             }
         });
+    }
+
+    private async Task SelectModDbFolder(Window window)
+    {
+        var topLevel = TopLevel.GetTopLevel(window);
+        if (topLevel == null) return;
+        
+        var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
+        {
+            Title = "Open ModDb Folder",
+            AllowMultiple = false
+        });
+
+        if (folders.Count >= 1)
+        {
+            Console.WriteLine(folders[0].Path.AbsolutePath);
+            IsFinished = true;
+        }
     }
 }
