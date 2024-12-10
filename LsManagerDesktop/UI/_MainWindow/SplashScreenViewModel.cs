@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reactive;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Avalonia.Controls;
@@ -51,9 +50,9 @@ public class SplashScreenViewModel : ViewModelBase
         {
             try
             {
-                var modDbSetting = DataAccess.GetEntity<Setting>(s => s.Key == "ModDbPath");
+                DataAccess.GetEntity<Setting>(s => s.Key == Settings.ModDbPath);
             }
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException)
             {
                 ShowModDbFolder = true;
                 IsFinished = false;
@@ -75,7 +74,11 @@ public class SplashScreenViewModel : ViewModelBase
 
         if (folders.Count >= 1)
         {
-            Console.WriteLine(folders[0].Path.AbsolutePath);
+            DataAccess.AddEntity(new Setting
+            {
+                Key = Settings.ModDbPath,
+                Value = folders[0].Path.AbsolutePath
+            });
             IsFinished = true;
         }
     }
