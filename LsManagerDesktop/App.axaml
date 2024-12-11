@@ -16,6 +16,8 @@
         <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Controls/StartButton.axaml" />
         <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Controls/IconButton.axaml" />
         <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Controls/NavigationButton.axaml" />
+        
+        <StyleInclude Source="avares://LsManagerDesktop/UI/__Shared/Styles/ButtonStyles.axaml" />
     </Application.Styles>
              
     <Application.Resources>
@@ -23,6 +25,7 @@
         <SolidColorBrush x:Key="GroupBoxBackgroundBrush" Color="#BFBEBE" />
         <SolidColorBrush x:Key="GroupBoxBackgroundLightBrush" Color="#D9D8D8" />
         <SolidColorBrush x:Key="PrimaryBrush" Color="#8BB312" />
+        <SolidColorBrush x:Key="PrimaryBrushHover" Color="#AECA59" />
         <SolidColorBrush x:Key="PrimaryBrushSelected" Color="White" Opacity=".15" />
         <SolidColorBrush x:Key="GroupBoxHeaderBrush" Color="#757E5A" />
         <SolidColorBrush x:Key="GroupBoxTitleBrush" Color="White" />

@@ -14,6 +14,7 @@ namespace LsManagerDesktop.UI._MainWindow;
 public class SplashScreenViewModel : ViewModelBase
 {
     public bool ShowModDbFolder { get; set; }
+    public string ModDbPath { get; set; } = string.Empty;
     public ICommand BtnModDbFolderCommand { get; set; }
     private bool IsFinished { get; set; }
     private int Frequency => 500;
@@ -74,12 +75,15 @@ public class SplashScreenViewModel : ViewModelBase
 
         if (folders.Count >= 1)
         {
+            /*
             DataAccess.AddEntity(new Setting
             {
                 Key = Settings.ModDbPath,
                 Value = folders[0].Path.AbsolutePath
-            });
-            IsFinished = true;
+            });*/
+            ModDbPath = folders[0].Path.AbsolutePath;
+            this.RaisePropertyChanged(nameof(ModDbPath));
+            //IsFinished = true;
         }
     }
 }

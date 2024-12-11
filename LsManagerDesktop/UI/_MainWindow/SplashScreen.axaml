@@ -25,10 +25,15 @@
                             IsVisible="{Binding ShowModDbFolder}">
                     <Label Classes="lblText">ModDb Folder</Label>
                     <StackPanel Orientation="Horizontal" Spacing="3" Margin="0 -4 0 0">
-                        <TextBox Classes="inTxt" Width="350"></TextBox>
+                        <TextBox Classes="inTxt" Width="350" Text="{Binding ModDbPath}" />
                         <Button Classes="lblBtn" 
                                 Command="{Binding BtnModDbFolderCommand}"
                                 CommandParameter="{Binding #SplashWindow}">...</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0 10 0 0"
+                                Spacing="5">
+                        <Button Classes="primary" Width="70" HorizontalContentAlignment="Center">OK</Button>
+                        <Button Classes="standard">Abbrechen</Button>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

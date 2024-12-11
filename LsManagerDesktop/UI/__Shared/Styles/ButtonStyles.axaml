@@ -1,0 +1,31 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Background="{DynamicResource BackgroundBrush}">
+            <StackPanel Margin="20" Spacing="10">
+                <Button Classes="standard" Content="Standard" />
+                <Button Classes="primary" Content="Primary" />
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="Button.standard">
+        <Setter Property="FontFamily" Value="{DynamicResource Poppins}" />
+        <Setter Property="Background" Value="{DynamicResource GroupBoxBackgroundBrush}" />
+    </Style>
+    
+    <Style Selector="Button.standard:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource GroupBoxBackgroundLightBrush}" />
+    </Style>
+
+    <Style Selector="Button.primary">
+        <Setter Property="FontFamily" Value="{DynamicResource Poppins}" />
+        <Setter Property="Foreground" Value="{DynamicResource GroupBoxTitleBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+    </Style>
+
+    <Style Selector="Button.primary:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrushHover}" />
+        <Setter Property="Foreground" Value="{DynamicResource GroupBoxTitleBrush}" />
+    </Style>
+</Styles>
