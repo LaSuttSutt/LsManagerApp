@@ -26,34 +26,43 @@
                     <Label Classes="lblText">ModDb Folder</Label>
                     <StackPanel Orientation="Horizontal" Spacing="3" Margin="0 -4 0 0">
                         <TextBox Classes="inTxt" Width="350" Text="{Binding ModDbPath}" />
-                        <Button Classes="lblBtn" 
+                        <Button Classes="lblBtn"
                                 Command="{Binding BtnModDbFolderCommand}"
-                                CommandParameter="{Binding #SplashWindow}">...</Button>
+                                CommandParameter="{Binding #SplashWindow}">
+                            ...
+                        </Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0 10 0 0"
                                 Spacing="5">
-                        <Button Classes="primary" Width="70" HorizontalContentAlignment="Center">OK</Button>
-                        <Button Classes="standard">Abbrechen</Button>
+                        <Button Classes="primary"
+                                Width="70"
+                                IsEnabled="{Binding CanContinue}"
+                                Command="{Binding BtnContinueCommand}"
+                                HorizontalContentAlignment="Center"
+                                Content="OK" />
+                        <Button Classes="standard"
+                                Command="{Binding BtnCancelCommand}"
+                                Content="Abbrechen" />
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
         </controls:HeaderControl>
     </Border>
-    
+
     <Window.Styles>
         <Style Selector="Label.lblText">
             <Setter Property="FontFamily" Value="{DynamicResource Poppins}" />
             <Setter Property="FontSize" Value="16" />
             <Setter Property="Foreground" Value="White" />
         </Style>
-        
+
         <Style Selector="TextBox.inTxt">
             <Setter Property="FontFamily" Value="{DynamicResource Poppins}" />
             <Setter Property="IsHitTestVisible" Value="false" />
             <Setter Property="Watermark" Value="- not set -" />
             <Setter Property="Background" Value="{DynamicResource GroupBoxBackgroundBrush}" />
         </Style>
-        
+
         <Style Selector="Button.lblBtn">
             <Setter Property="Background" Value="{DynamicResource GroupBoxBackgroundBrush}" />
             <Setter Property="Height" Value="32" />

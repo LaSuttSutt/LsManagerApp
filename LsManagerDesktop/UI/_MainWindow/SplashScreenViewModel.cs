@@ -13,22 +13,40 @@ namespace LsManagerDesktop.UI._MainWindow;
 
 public class SplashScreenViewModel : ViewModelBase
 {
+    #region View
+    
+    public ICommand BtnModDbFolderCommand { get; set; }
+    public ICommand BtnCancelCommand { get; set; }
+    public ICommand BtnContinueCommand { get; set; }
     public bool ShowModDbFolder { get; set; }
     public string ModDbPath { get; set; } = string.Empty;
-    public ICommand BtnModDbFolderCommand { get; set; }
+    public bool CanContinue { get; set; }
+    
+    #endregion
+    
+    #region Declarations
+    
     private bool IsFinished { get; set; }
     private int Frequency => 500;
-
+    
+    #endregion
+    
+    #region C'tor
+    
     public SplashScreenViewModel()
     {
         BtnModDbFolderCommand = ReactiveCommand.Create<Window, Task>(SelectModDbFolder);
+        BtnCancelCommand = ReactiveCommand.Create(() => Environment.Exit(0));
+        BtnContinueCommand = ReactiveCommand.Create(() => IsFinished = true);
     }
+    
+    #endregion
+    
+    #region Methods
     
     public async Task Load()
     {
         var tasks = new List<Task> {
-            
-            // Check for ModDbFolder
             CheckModDbFolder()
         };
 
@@ -52,6 +70,7 @@ public class SplashScreenViewModel : ViewModelBase
             try
             {
                 DataAccess.GetEntity<Setting>(s => s.Key == Settings.ModDbPath);
+                IsFinished = true;
             }
             catch (InvalidOperationException)
             {
@@ -75,15 +94,17 @@ public class SplashScreenViewModel : ViewModelBase
 
         if (folders.Count >= 1)
         {
-            /*
             DataAccess.AddEntity(new Setting
             {
                 Key = Settings.ModDbPath,
                 Value = folders[0].Path.AbsolutePath
-            });*/
+            });
             ModDbPath = folders[0].Path.AbsolutePath;
+            CanContinue = true;
             this.RaisePropertyChanged(nameof(ModDbPath));
-            //IsFinished = true;
+            this.RaisePropertyChanged(nameof(CanContinue));
         }
     }
+    
+    #endregion
 }
